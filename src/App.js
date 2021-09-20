@@ -1,10 +1,21 @@
 import React from "react";
 import "./App.css";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, createGlobalStyle } from "styled-components";
 
 import logo from "./img/logo.svg";
 import logo_coupang from "./img/logo_coupang_w.png";
 import logo_baemin from "./img/logo_baemin_w.png";
+
+import bg from "./img/bg.jpg";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-image: url(${bg});
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+`;
 
 const fadeIn = keyframes`
   from {
@@ -96,31 +107,34 @@ const DeliveryBtn = styled.button`
 
 function App() {
   return (
-    <Container>
-      <Nav>
-        <img src={logo} alt="logo" />
-      </Nav>
-      <TextCon>
-        <h1 className="first">Take it easy,</h1>
-        <h1 className="second">blendeasy.</h1>
-      </TextCon>
-      <BtnCon>
-        <DeliveryBtn
-          onClick={() => window.open("https://baemin.me/bZG-Fc-sEh")}
-        >
-          <img src={logo_baemin} alt="baemin" />
-        </DeliveryBtn>
-        <DeliveryBtn
-          onClick={() =>
-            window.open(
-              "https://web.coupangeats.com/share?storeId=335915&dishId&key=fbe62956-8357-4417-b8c0-723f93d02968"
-            )
-          }
-        >
-          <img src={logo_coupang} alt="coupang" />
-        </DeliveryBtn>
-      </BtnCon>
-    </Container>
+    <>
+      <GlobalStyle />
+      <Container>
+        <Nav>
+          <img src={logo} alt="logo" />
+        </Nav>
+        <TextCon>
+          <h1 className="first">Take it easy,</h1>
+          <h1 className="second">blendeasy.</h1>
+        </TextCon>
+        <BtnCon>
+          <DeliveryBtn
+            onClick={() => window.open("https://baemin.me/bZG-Fc-sEh")}
+          >
+            <img src={logo_baemin} alt="baemin" />
+          </DeliveryBtn>
+          <DeliveryBtn
+            onClick={() =>
+              window.open(
+                "https://web.coupangeats.com/share?storeId=335915&dishId&key=fbe62956-8357-4417-b8c0-723f93d02968"
+              )
+            }
+          >
+            <img src={logo_coupang} alt="coupang" />
+          </DeliveryBtn>
+        </BtnCon>
+      </Container>
+    </>
   );
 }
 
