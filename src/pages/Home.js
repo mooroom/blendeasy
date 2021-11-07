@@ -2,18 +2,11 @@ import React from "react";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
 import { Link } from "react-router-dom";
 import bg from "../img/bg.jpg";
-import logo from "../img/logo.svg";
 import logo_coupang from "../img/logo_coupang_w.png";
 import logo_baemin from "../img/logo_baemin_w.png";
+import logo from "../img/logo_white.svg";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background-image: url(${bg});
-    background-position: left;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-`;
+import { Header, HeaderContent, Content, PlatformButton } from "./HomeStyles";
 
 const fadeIn = keyframes`
   from {
@@ -106,9 +99,28 @@ const DeliveryBtn = styled.button`
 function Home(props) {
   return (
     <>
-      <GlobalStyle />
       <Container>
-        <Nav>
+        <Header>
+          <HeaderContent>
+            <img src={logo} alt="logo" />
+            <span>Take it easy, blendeasy.</span>
+          </HeaderContent>
+        </Header>
+        <Content>
+          <div className="title">배달플랫폼을 선택해주세요.</div>
+          <Link to="/order_b">
+            <PlatformButton color="baemin">
+              <img src={logo_baemin} alt="logo_baemin" />
+            </PlatformButton>
+          </Link>
+          <hr style={{ borderStyle: "none" }} />
+          <Link to="order_c">
+            <PlatformButton color="coupang">
+              <img src={logo_coupang} alt="logo_coupang" />
+            </PlatformButton>
+          </Link>
+        </Content>
+        {/* <Nav>
           <img src={logo} alt="logo" />
         </Nav>
         <TextCon>
@@ -127,7 +139,7 @@ function Home(props) {
               <img src={logo_coupang} alt="coupang" />
             </DeliveryBtn>
           </Link>
-        </BtnCon>
+        </BtnCon> */}
       </Container>
     </>
   );
