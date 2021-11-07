@@ -1,17 +1,35 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+const colorStyles = css`
+  ${({ theme, color }) => {
+    const selected = theme.palette[color];
+    return css`
+      background: ${selected};
+    `;
+  }}
+`;
+
+export const Header = styled.div`
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  align-items: center;
+
+  span {
+    margin-left: 15px;
+  }
+
+  ${colorStyles}
+`;
 
 export const Container = styled.div`
   width: 100%;
   padding: 0 30px;
+  padding-top: 30px;
   position: relative;
-`;
-
-export const Title = styled.div`
-  width: 100%;
-  text-align: center;
-  padding: 30px 0;
-  font-weight: bold;
-  font-size: 18px;
 `;
 
 export const BtnContainer = styled.div`

@@ -8,7 +8,10 @@ import {
   BtnRow,
   PlaceBtn,
   ConfirmBtn,
+  Header,
 } from "./OrderStyles";
+import backArrow from "../img/arrow_back.svg";
+import { Link } from "react-router-dom";
 
 function Order({ type, title, places }) {
   const [dialog, setDialog] = useState(false);
@@ -21,8 +24,13 @@ function Order({ type, title, places }) {
 
   return (
     <>
+      <Header color={type}>
+        <Link to="/">
+          <img src={backArrow} alt="backArrow" />
+        </Link>
+        <span>{title}</span>
+      </Header>
       <Container>
-        <Title>{title}</Title>
         <BtnContainer>
           {rows.map((row, index) => (
             <BtnRow key={index}>
