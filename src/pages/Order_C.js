@@ -3,7 +3,7 @@ import Order from "../components/Order";
 
 const page_info = {
   type: "coupang",
-  title: "쿠팡이츠로 주문하기",
+  title: "쿠팡이츠로 주문",
   places: [
     {
       url: "#",

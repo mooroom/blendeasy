@@ -68,6 +68,12 @@ export const PlaceBtn = styled.div`
     font-size: 11px;
     color: gray;
   }
+
+  ${(props) =>
+    props.empty &&
+    css`
+      box-shadow: none;
+    `}
 `;
 
 export const ConfirmBtn = styled.div`

@@ -23,11 +23,11 @@ function Home(props) {
           </PlatformButton>
         </Link>
         <hr style={{ borderStyle: "none" }} />
-        <Link to="order_c">
+        {/* <Link to="order_c">
           <PlatformButton color="coupang">
             <img src={logo_coupang} alt="logo_coupang" />
           </PlatformButton>
-        </Link>
+        </Link> */}
       </Content>
     </>
   );
