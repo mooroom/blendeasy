@@ -74,7 +74,7 @@ export const Content = styled.div`
   .title {
     text-align: center;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 20px;
   }
 `;
@@ -88,22 +88,36 @@ const colorStyles = css`
   }}
 `;
 
+// export const PlatformButton = styled.div`
+//   width: 100%;
+//   height: 150px;
+//   border-radius: 30px;
+//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   & + & {
+//     margin-top: 20px;
+//   }
+
+//   img {
+//     height: 30px;
+//   }
+
+//   ${colorStyles}
+// `;
+
 export const PlatformButton = styled.div`
-  width: 100%;
-  height: 150px;
-  border-radius: 30px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & + & {
-    margin-top: 20px;
-  }
-
-  img {
-    height: 30px;
-  }
-
-  ${colorStyles}
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  right: 30px;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: ${(props) =>
+    props.color === "baemin" ? "var(--baemin)" : "var(--coupang)"};
 `;
