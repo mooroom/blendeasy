@@ -1,16 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
+import Badge from "./Badge";
+
 const SliderContainer = styled.div`
   width: 100%;
   overflow-x: auto;
   display: flex;
   flex-direction: row;
+  position: relative;
 
   &::-webkit-scrollbar {
     display: none;
   }
 `;
+
 const SliderItem = styled.div`
   flex-shrink: 0;
 
@@ -37,13 +41,22 @@ const SliderItemText = styled.div`
   padding: 0 5px;
 `;
 
+const SliderItemSubText = styled.div`
+  font-size: 13px;
+  margin-top: 2px;
+  padding: 0 5px;
+  color: gray;
+`;
+
 const Slider = ({ data }) => {
   return (
     <SliderContainer>
       {data.map((item) => (
         <SliderItem>
+          {item.best && <Badge text="BEST" />}
           <SliderItemImage img={item.img} />
           <SliderItemText>{item.name}</SliderItemText>
+          <SliderItemSubText>{item.price}</SliderItemSubText>
         </SliderItem>
       ))}
     </SliderContainer>
