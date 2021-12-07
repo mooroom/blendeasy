@@ -2,6 +2,8 @@ import { animation } from "polished";
 import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
 
+import CloseButton from "./CloseButton";
+
 const fadeIn = keyframes`
     from {
         opacity: 0;
@@ -63,6 +65,7 @@ const DarkBackground = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
   padding: 0 30px;
+  z-index: 99;
 
   animation-duration: 0.25s;
   animation-timing-function: ease-out;
@@ -93,14 +96,19 @@ const ModalBlock = styled.div`
 
 const ModalHeader = styled.div`
   width: 100%;
-  padding: 20px 20px 0px 20px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  .title-con {
+    display: flex;
+    align-items: center;
+  }
+
   .title {
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: 900;
     margin-right: 10px;
   }
 
@@ -109,3 +117,34 @@ const ModalHeader = styled.div`
     color: rgba(0, 0, 0, 0.4);
   }
 `;
+
+function Modal({ data, onCancel, visible }) {
+  const [animate, setAnimate] = useState(false);
+  const [localVisible, setLocalVisible] = useState(visible);
+
+  useEffect(() => {
+    if (localVisible && !visible) {
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 250);
+    }
+    setLocalVisible(visible);
+  }, [localVisible, visible]);
+
+  if (!animate && !localVisible) return null;
+
+  return (
+    <DarkBackground disappear={!visible}>
+      <ModalBlock disappear={!visible}>
+        <ModalHeader>
+          <div className="title-con">
+            <div className="title">{data.name}</div>
+            <div className="subtitle">{data.ename}</div>
+          </div>
+          <CloseButton onClick={onCancel} />
+        </ModalHeader>
+      </ModalBlock>
+    </DarkBackground>
+  );
+}
+
+export default Modal;

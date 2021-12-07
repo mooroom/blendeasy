@@ -1,4 +1,4 @@
-import React from "react";
+import Reac from "react";
 import styled from "styled-components";
 
 import Badge from "./Badge";
@@ -48,11 +48,17 @@ const SliderItemSubText = styled.div`
   color: gray;
 `;
 
-const Slider = ({ data }) => {
+const Slider = ({ data, onClickItem }) => {
+  const { setModal, setItem } = onClickItem;
   return (
     <SliderContainer>
       {data.map((item) => (
-        <SliderItem>
+        <SliderItem
+          onClick={() => {
+            setModal(true);
+            setItem(item);
+          }}
+        >
           {item.best && <Badge text="BEST" />}
           <SliderItemImage img={item.img} />
           <SliderItemText>{item.name}</SliderItemText>
