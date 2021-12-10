@@ -13,6 +13,13 @@ function App() {
         palette: {
           baemin: "#4ac1bc",
           coupang: "#20ccf5",
+          donghae: "#1a4475",
+          mojito: "#73a039",
+          sunrise: "#bf422a",
+          moscow: "#5c5342",
+          martini: "#a12245",
+          whitelady: "#eee934",
+          nonalcohol: "#000",
         },
       }}
     >

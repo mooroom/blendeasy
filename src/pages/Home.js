@@ -39,7 +39,12 @@ function Home(props) {
           </PlatformButton>
         </Link> */}
       </Content>
-      <Modal visible={modal} onCancel={() => setModal(false)} data={item} />
+      <Modal
+        visible={modal}
+        onCancel={() => setModal(false)}
+        data={item}
+        theme={props.theme}
+      />
     </>
   );
 }

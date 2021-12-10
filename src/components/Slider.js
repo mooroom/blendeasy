@@ -54,6 +54,7 @@ const Slider = ({ data, onClickItem }) => {
     <SliderContainer>
       {data.map((item) => (
         <SliderItem
+          key={item.id}
           onClick={() => {
             setModal(true);
             setItem(item);

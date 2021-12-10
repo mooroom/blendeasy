@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled, { keyframes, css } from "styled-components";
 
 import CloseButton from "./CloseButton";
+import CardContent from "./CardContent";
+import Button from "./Button";
+import { Link } from "react-router-dom";
 
 const fadeIn = keyframes`
     from {
@@ -83,6 +86,7 @@ const ModalBlock = styled.div`
   width: 100%;
   background: white;
   border-radius: 5px;
+  overflow: hidden;
 
   animation-duration: 0.25s;
   animation-timing-function: ease-out;
@@ -118,6 +122,25 @@ const ModalHeader = styled.div`
   }
 `;
 
+const ModalBody = styled.div`
+  width: 100%;
+  height: 400px;
+  overflow: auto;
+  background: white;
+  padding: 0 20px;
+
+  img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+`;
+
+const ModalFooter = styled.div`
+  width: 100%;
+  padding: 20px;
+`;
+
 function Modal({ data, onCancel, visible }) {
   const [animate, setAnimate] = useState(false);
   const [localVisible, setLocalVisible] = useState(visible);
@@ -142,6 +165,17 @@ function Modal({ data, onCancel, visible }) {
           </div>
           <CloseButton onClick={onCancel} />
         </ModalHeader>
+        <ModalBody>
+          <img src={data.img2} alt="img" />
+          <CardContent color={data.color} info={data.info} story={data.story} />
+        </ModalBody>
+        <ModalFooter>
+          <Link to="/order_b" style={{ textDecoration: "none" }}>
+            <Button color={data.alias} size="large" fullWidth>
+              주문하기
+            </Button>
+          </Link>
+        </ModalFooter>
       </ModalBlock>
     </DarkBackground>
   );
