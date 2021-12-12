@@ -5,6 +5,7 @@ import styled, { keyframes, css } from "styled-components";
 import CloseButton from "./CloseButton";
 import CardContent from "./CardContent";
 import Button from "./Button";
+import ImagePlaceholder from "./ImagePlaceholder";
 import { Link } from "react-router-dom";
 
 const fadeIn = keyframes`
@@ -129,6 +130,10 @@ const ModalBody = styled.div`
   background: white;
   padding: 0 20px;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   img {
     width: 100%;
     border-radius: 5px;
@@ -144,6 +149,7 @@ const ModalFooter = styled.div`
 function Modal({ data, onCancel, visible }) {
   const [animate, setAnimate] = useState(false);
   const [localVisible, setLocalVisible] = useState(visible);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
     if (localVisible && !visible) {
@@ -163,10 +169,18 @@ function Modal({ data, onCancel, visible }) {
             <div className="title">{data.name}</div>
             <div className="subtitle">{data.ename}</div>
           </div>
-          <CloseButton onClick={onCancel} />
+          <CloseButton onClickEvents={{ onCancel, setIsImageLoaded }} />
         </ModalHeader>
         <ModalBody>
-          <img src={data.img2} alt="img" />
+          {!isImageLoaded && <ImagePlaceholder />}
+
+          <img
+            style={isImageLoaded ? { display: "block" } : { display: "none" }}
+            src={data.img2}
+            alt="img"
+            onLoad={() => setIsImageLoaded(true)}
+          />
+
           <CardContent color={data.color} info={data.info} story={data.story} />
         </ModalBody>
         <ModalFooter>

@@ -25,8 +25,15 @@ const CloseIcon = styled.div`
   }
 `;
 
-function CloseButton({ onClick }) {
-  return <CloseIcon onClick={onClick} />;
+function CloseButton({ onClickEvents }) {
+  return (
+    <CloseIcon
+      onClick={() => {
+        onClickEvents.onCancel();
+        onClickEvents.setIsImageLoaded(false);
+      }}
+    />
+  );
 }
 
 export default CloseButton;
