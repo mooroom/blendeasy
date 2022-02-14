@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Order from "../components/Order";
+
+// firebase
+import { analytics } from "../firebaseConfig";
+import { logEvent } from "firebase/analytics";
 
 const page_info = {
   type: "baemin",
@@ -43,6 +47,10 @@ const page_info = {
 };
 
 function Order_B(props) {
+  useEffect(() => {
+    logEvent(analytics, "order_baemin_visited");
+  }, []);
+
   return (
     <Order
       type={page_info.type}
