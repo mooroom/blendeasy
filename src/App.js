@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
@@ -6,7 +6,15 @@ import Order_B from "./pages/Order_B";
 import Order_C from "./pages/Order_C";
 import { ThemeProvider } from "styled-components";
 
+// firebase
+import { logEvent } from "firebase/analytics";
+import { analytics } from "./firebaseConfig";
+
 function App() {
+  useEffect(() => {
+    logEvent(analytics, "homepage_visited");
+  }, []);
+
   return (
     <ThemeProvider
       theme={{
