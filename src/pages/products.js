@@ -5,6 +5,8 @@ import moscow from "../img/product_moscow.png";
 import martini from "../img/product_martini.png";
 import whitelady from "../img/product_whitelady.png";
 import nonalcohol from "../img/product_nonalcohol.png";
+import blendy from "../img/product_blendy.jpg";
+import peachcrush from "../img/product_peachcrush.jpg";
 
 import donghae2 from "../img/mobile_donghae.png";
 import mojito2 from "../img/mobile_mojito.png";
@@ -13,11 +15,49 @@ import moscow2 from "../img/mobile_moscow.png";
 import martini2 from "../img/mobile_martini.png";
 import whitelady2 from "../img/mobile_whitelady.png";
 import nonalcohol2 from "../img/mobile_nonalcohol.png";
+import blendy2 from "../img/mobile_blendy.jpg";
+import peachcrush2 from "../img/mobile_peachcrush.jpg";
 
 const getABV = (value) => `주류도수 / ${value}`;
 const getRecipe = (value) => `원액 + 주류 ${value / 30}oz(${value}ml)`;
 
 const products = [
+  {
+    id: 9,
+    img: blendy,
+    img2: blendy2,
+    name: "블렌디",
+    ename: "Blendy",
+    alias: "blendy",
+    price: "6900원",
+    best: true,
+    color: "#000000",
+    info: {
+      abv: getABV(3),
+      rcmndBase: "소주, 럼, 럼팟",
+      recipe: getRecipe(45),
+    },
+    story:
+      "동해는 푸르고 깊은 동해를 표현한 칵테일 입니다. 우리나라의 동해, 그 레시피의 원조는 잘 알려져 있지 않습니다. 그럼에도 불구하고 달달하면서 청량한 동해의 맛은 많은 사람에게 사랑받고 있습니다.",
+  },
+  {
+    id: 8,
+    img: peachcrush,
+    img2: peachcrush2,
+    name: "동해",
+    ename: "Peach Crush",
+    alias: "peachcrush",
+    price: "6900원",
+    best: true,
+    color: "#1A4475",
+    info: {
+      abv: getABV(3),
+      rcmndBase: "소주, 럼, 럼팟",
+      recipe: getRecipe(45),
+    },
+    story:
+      "동해는 푸르고 깊은 동해를 표현한 칵테일 입니다. 우리나라의 동해, 그 레시피의 원조는 잘 알려져 있지 않습니다. 그럼에도 불구하고 달달하면서 청량한 동해의 맛은 많은 사람에게 사랑받고 있습니다.",
+  },
   {
     id: 1,
     img: donghae,
