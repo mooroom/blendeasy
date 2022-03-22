@@ -63,6 +63,8 @@ export const HeaderContent = styled.div`
 export const Content = styled.div`
   background: white;
   position: absolute;
+  display: flex;
+  flex-direction: column;
   top: 195px;
   left: 0;
   right: 0;
@@ -70,6 +72,10 @@ export const Content = styled.div`
   border-radius: 30px 30px 0 0;
   padding: 30px;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .title {
     text-align: center;
@@ -108,11 +114,17 @@ const colorStyles = css`
 //   ${colorStyles}
 // `;
 
-export const PlatformButton = styled.div`
+export const Footer = styled.div`
   position: fixed;
-  bottom: 20px;
-  left: 30px;
-  right: 30px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 30px;
+  background: white;
+`;
+
+export const PlatformButton = styled.div`
+  width: 100%;
   padding: 15px;
   text-align: center;
   color: white;
